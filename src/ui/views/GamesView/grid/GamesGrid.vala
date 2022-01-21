@@ -89,8 +89,9 @@ namespace GameHub.UI.Views.GamesView.Grid
 				var card_top = alloc.y;
 				var card_bottom = alloc.y + alloc.height;
 
-				var is_before_viewport = card_bottom < viewport_top;
-				var is_after_viewport = card_top > viewport_bottom;
+				// ATN change here
+				var is_before_viewport = card_bottom < viewport_top - 1200;
+				var is_after_viewport = card_top > viewport_bottom + 1200;
 
 				card.image_is_visible = !is_before_viewport && !is_after_viewport;
 			});

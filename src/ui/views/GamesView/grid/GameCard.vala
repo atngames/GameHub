@@ -310,7 +310,7 @@ namespace GameHub.UI.Views.GamesView.Grid
 			_visible_game = vg;
 
 			Idle.add(() => {
-				label.label = game.name;
+				label.label = "";
 				src_icon.icon_name = game.source.icon;
 
 				src_icons.foreach(w => w.destroy());
@@ -387,7 +387,7 @@ namespace GameHub.UI.Views.GamesView.Grid
 		private void status_handler(Game.Status s)
 		{
 			Idle.add(() => {
-				label.label = game.name;
+				label.label = "";
 				status_label.label = s.description;
 				favorite_icon.visible = game.has_tag(Tables.Tags.BUILTIN_FAVORITES);
 				switch(s.state)
@@ -440,7 +440,12 @@ namespace GameHub.UI.Views.GamesView.Grid
 
 		private void update_image()
 		{
-			if(image == null) return;
+			if(image == null) 
+			{
+				// ATN change here
+				label.label = game.name;
+				return;
+			}
 			if(image_is_visible)
 			{
 				image.load(game.image, game.image_vertical, @"games/$(game.source.id)/$(game.id)/images/");

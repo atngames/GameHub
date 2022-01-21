@@ -25,7 +25,7 @@
 .games-grid flowboxchild:focus .gamecard:not(.installed),
 .games-grid flowboxchild:selected .gamecard:not(.installed)
 {
-	opacity: 0.8;
+	opacity: 0.6;
 }
 
 .gamecard GtkLabel, .gamecard label
